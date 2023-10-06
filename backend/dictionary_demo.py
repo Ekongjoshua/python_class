@@ -10,7 +10,6 @@ while True:
 
     if choice == "1":
         if login_status:  #check that the current user/memeber is logged in
-            user_details = members[current_user]
             user_library = user_details['borrowed_book']
             id =1 #set a count for display
             for book in library:

@@ -27,9 +27,9 @@ which books they're  taking , and making sure only members can borrow books.
 # key: value
 
 members = [
-    {"username": [], "borrowed_books": [],}, 
-    {"username": [], "borrowed_books": [],}, 
-    {"username": [], "borrowwed_books" : [],},
+    {"username": "james", "borrowed_books": [],}, 
+    {"username": "faith", "borrowed_books": [],}, 
+    {"username": "pet", "borrowwed_books" : [],},
            ]
 #           0     1    2     3      4
 library = ["book1" , "book2", "book3" , "book4" , "book5"]
@@ -43,9 +43,9 @@ while True:
     
     if choice =="1":
         if login_status == True: #check that the current user/member is logged in
-            user_details = members[current_user] #this indicate you most be a member to log in
-            user_library = user_details['borrowed_books']
-            if len(user_library) == 0:
+            user_details = members[current_user] #this is to know who is loggin
+            user_library = user_details['borrowed_books']  # this is for the book the library user want to borrow
+            if len(user_library) == 0: #this is to know the amount of books borrowed
                 id = 1 #set a count for the display
                 for book in library:
                     print(id , "", book) #we display the attached id along with the book name
@@ -59,8 +59,8 @@ while True:
                 
                 
                 #take out the book and add it to the borrowed list
-                selected_book = library.pop(book_index)
-                user_library.append(selected_book)
+                selected_book = library.pop(book_index) # this is to remove the selected book from the library
+                user_library.append(selected_book) # this is to add the selected book to the user collection
                 print(library)
                 print(user_library)
             else:
@@ -72,9 +72,9 @@ while True:
             print("please login first")
     elif choice == "2":
         
-        username = input("Enter username: ")
-        for user in members:
-            if user["username"] == username:
+        username = input("Enter username: ") # enter username
+        for user in members:     # for all the username if 
+            if user["username"] == username:  # the username is inside
                 login_status = True
                 current_user = members.index(user)
                 
